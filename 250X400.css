@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Proxima+Nova");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
 
-
-.loader{
+.loader {
   height: 21px;
   width: auto;
   position: absolute;
@@ -11,969 +10,924 @@
   transition: 0.5s all ease-in-out;
 }
 
+#container {
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  /*border: 0.5px solid black;*/
+}
 
-    #container {
-      position: absolute;
-      display: block;
-      height: auto;
-      min-height: 100% !important;
-      width:100%;
-      max-width: 100%;
-     
-      margin:0;
-      padding:0;
-      /*border: 0.5px solid black;*/
-  }
-  
-    #header{
-      width: 100%;
+#header {
+  width: 100%;
   height: 43px;
-  background: #2A1563;
+  background: #2a1563;
   display: flex;
   align-items: center;
   justify-content: center;
-    }
-  
+}
 
-    .logowrapper{
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: 200px;
-      height: 43px;
-    }
+.logowrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 35px;
+}
 
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    #footer{
-      position:absolute;
-        bottom: 0px;
-        width:100%;
-        height:40px;  
-       display: flex;
-       align-items: center;
-        justify-content: center;
-    
-    background: #F2F2FF;
-    }
-    
-    #bank_logo{
-      position: absolute;
-      left:0px;
-      background-color: white;
-      width: 76.5px;
-      height: auto;
-     
-    }
-    
-    #visa_logo{
-      width: 47px;
-      height: auto;
-      position: absolute;
-      right:0px; 
-      background-color: white;
-    }
-    
-    #pci_logo{
-      width: 23px;
-      height: auto;
-      top: 15.5px;
-      position: absolute; 
-      left: 0px;
-    
-    } 
-    #yap_logo{
-      width: 16px;
-      height: auto;
-      top: 7.25px;
-      position: absolute; 
-      right: 0px;
-    }
-    
-    .copyright{
-        position: absolute;
-        font-family: "Proxima Nova",'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4px;
-    padding-left: 20px;
-    top: 11px;
-    }
+  background: #f2f2ff;
+}
 
+#bank_logo {
+  position: absolute;
+  left: 0px;
+  background-color: white;
+  width: 76.5px;
+  height: auto;
+}
 
-    .errorBoxcontainer{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .errorBox{
-      position: absolute;
-      bottom: 33px;
-      height: 22px;
-      width: 154px;
-      background-color: #FFEFF2;
-      border: 0.3px solid rgb(255, 0, 49 ,0.6);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      z-index: 1;
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.5s ease-in-out;
-    }
+#visa_logo {
+  width: 47px;
+  height: auto;
+  position: absolute;
+  right: 0px;
+  background-color: white;
+}
 
-    
-  
-  .exclaim{
-    height: auto;
-    width: 9px;
-    margin-left: 5px;
-  }  
-  
-  .crossbar{
-    position: absolute;
-    height: auto;
-    width: 8px;
-    right: 7px;
-  }
-  
-  .invalidotp{
-    color: #FF0031;
-    font-size: 9px;
-  }
-  
-    #otpinfo{
-      position: relative;
-      top: 4px;
-      display: flex;
-     
-      justify-content: center;
-  color: #273A49;
-  font-family: "Proxima Nova",'Open Sans', sans-serif;
+#pci_logo {
+  width: 23px;
+  height: auto;
+  top: 15.5px;
+  position: absolute;
+  left: 0px;
+}
+#yap_logo {
+  width: 16px;
+  height: auto;
+  top: 7.25px;
+  position: absolute;
+  right: 0px;
+}
+
+.copyright {
+  position: absolute;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4px;
+  padding-left: 20px;
+  top: 11px;
+}
+
+.errorBoxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorBox {
+  position: absolute;
+  bottom: 33px;
+  height: 22px;
+  width: 154px;
+  background-color: #ffeff2;
+  border: 0.3px solid rgb(255, 0, 49, 0.6);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.exclaim {
+  height: auto;
+  width: 9px;
+  margin-left: 5px;
+}
+
+.crossbar {
+  position: absolute;
+  height: auto;
+  width: 8px;
+  right: 7px;
+  cursor: pointer;
+}
+
+.crossbar:active ~ .errorBox {
+  position: absolute;
+  bottom: 33px;
+  height: 22px;
+  width: 154px;
+  background-color: #ffeff2;
+  border: 0.3px solid rgb(255, 0, 49, 0.6);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.invalidotp {
+  color: #ff0031;
+  font-size: 9px;
+}
+
+.contentwrapper {
+  width: 100%;
+  float: left;
+}
+
+#otpinfo {
+  position: relative;
+  margin-top: 4px;
+  display: flex;
+
+  justify-content: center;
+  color: #273a49;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
   text-align: justify;
   font-size: 7px;
   width: 100%;
   height: auto;
-  }
-  
-  .otpins{
-    width: 200px;
-    line-height: 150%;
-  }
-  
-  .wrapperUser{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    top: 10px;
-  }
-  
-  .wrapperBar{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    top: 10px;
-  }
-  
-  #wrapperotp{
-      position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  
-  #reqOTP{
-      top: 48px;
-  }
-  
-  
-  #user_details{
-    width: 201px;
+  float: left;
+}
+
+.otpins {
+  width: 200px;
+  line-height: 150%;
+}
+
+.wrapperUser {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  float: left;
+}
+
+.wrapperBar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  float: left;
+  width: 100%;
+}
+
+#wrapperotp {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#reqOTP {
+  top: 48px;
+}
+
+#user_details {
+  width: 201px;
   height: fit-content;
   max-height: fit-content;
-  background: #F4F7FF;
+  background: #f4f7ff;
   opacity: 0.5;
-  border: 0.5px solid #D0E1F9;
+  border: 0.5px solid #d0e1f9;
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: 5px;
   padding-right: 5px;
-  
-  }
-  
-  p{
-      margin: 5px;
-  }
-  
-  #user_details > table{
-    width: 183px;
-    padding: 0px;
-    margin: 0px;
-    
-  }
-  
-  td,hr{
-  
+}
+
+p {
+  margin: 5px;
+}
+
+#user_details > table {
+  width: 183px;
   padding: 0px;
-  margin:0px;
-  
-  }
-  
-  
-  .user_field{
-    font-family: "Proxima Nova",'Open Sans', sans-serif;
+  margin: 0px;
+}
+
+td,
+hr {
+  padding: 0px;
+  margin: 0px;
+}
+
+.user_field {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 7px;
   line-height: 1;
   text-align: left;
   width: 60px;
-  color: #273A49;
+  color: #273a49;
   vertical-align: top;
-  }
-  
-  .user_fieldValue{
-      padding-left: 22px;
-      font-family: "Proxima Nova",'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 6px;
-    line-height: 1;
-    text-align: left;
-    
-    color: #737A8D;
-    }
-  
- 
-  
-  .tabbar{
-    position: relative;
-    top: 18px;
-    width: fit-content;
+}
+
+.user_fieldValue {
+  padding-left: 22px;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 1;
+  text-align: left;
+
+  color: #737a8d;
+}
+
+.tabbar {
+  position: relative;
+  width: fit-content;
   height: 16px;
-  background: #F2F2FF;
+  background: #f2f2ff;
   border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.dyncnt {
+  position: relative;
+  margin-top: 25px;
+  display: none;
+  animation: fadeEffect 1s;
+  float: left;
+  width: 100%;
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
   }
-  
-  
-  
-  .dyncnt{
-      position: relative;
-      top: 36px;
-      display: none;
-      animation: fadeEffect 1s;
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeEffect {
-      from {opacity: 0;}
-      to {opacity: 1;}
-  }
-  
-  button{
+}
+
+button {
   background-color: inherit;
   width: 67px;
   height: 16px;
   font-weight: medium;
   line-height: 0;
   font-size: 8px;
-  
-  color: #2A1563;
+
+  color: #2a1563;
   border-radius: 25px;
   outline: none;
   padding-top: 2px;
   border: none;
-  }
-  
-  button:hover{
+}
+
+button:hover {
   background-color: #634d92;
   cursor: pointer;
   color: white;
-  }
-  
-  button.active{
-  background-color: #2A1563;
-  color: white;
-  }
-  
-  
-  
-  
-  
-  
-  #quest_otp{
-    position: relative;
-    top: 40px;
-    font-size: 8px;
-    width: 182px;
-    text-align:center;
-    color: #737A8D;
-  }
-  
-  .sendotp{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-  
-  }
-  
-  .sendotpBtn {
-                  display: block;
-                  width: 89px;
-                  height: 22px;
-                  margin: 20px 0;
-                  background: #5F30E2;
-                  color: white;
-                  border: 0;
-                  font-size: 8px;
-                  font-weight: bold;
-                  border-radius: 2px;
-                  box-sizing: border-box;
-                  outline: none;
-                  cursor: pointer;
-              }
-  
-  
-  #otpenter   {
-                  top: 48px;
-              }
-  
-  
-  .otpBoxcontainer{
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      width: 100%;
-                      margin-top: 6px;
-                  }
-  
-  
-  .otp{
-          width: 154px;
-          max-width: fit-content;
-      }
-  
-      #otpexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 7px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #pinexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #pinExpexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #passexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #rstotpexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #rstexpexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #createexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-
-      #confirmexclaim{
-        position: absolute;
-        height: 9.5px;
-        width: 10px;
-        top: 6px;
-        margin-left: 5px;
-        opacity: 0;
-      }
-  
-
-      .statpin{
-        width: 167px;
-        max-width: fit-content;
-    }
-  
-  
-  
-  
-  .otpbox {
-          
-              width: 22px !important;
-              height: 22px !important;
-              max-height: 22px;
-              max-width: 22px;
-              border: 0.5px solid #E1E7F3;
-              padding: 9px 7px 9px 8.3px;
-              background: #f1f3f8;
-              outline: none;
-              border-radius: 2px;
-  
-        }
-  
-        .pinbox {
-          
-          width: 22px !important;
-          height: 22px !important;
-          max-height: 22px;
-          max-width: 22px;
-          border: 0.5px solid #E1E7F3;
-          padding: 9px 0px 9px 8.35px;
-          background: #f1f3f8;
-          outline: none;
-          border-radius: 2px;
-  
-    }      
-  
-    .passbox {
-          
-      width: 167px !important;
-      height: 22px !important;
-      max-height: 22px;
-      max-width: 167px;
-      border: 0.5px solid #E1E7F3;
-      padding: 9px 8px 9px 8px;
-      background: #f1f3f8;
-      outline: none;
-      border-radius: 2px;
-      letter-spacing: 5.7px;
-  }
-    
-  
-  .resendwrapper{
-      top: 6px;
-      display: flex;
-      justify-content: center;
-  }      
-  
-  .resendOTP  {
-                  position: relative;
-                  width: 153px;
-              }
-  
-  
-  
-              a[disabled] {
-                color: gray;
-            }
-  
-            a.disabled {
-              color: gray;
-          }
-  
-  
-  
-  
-  .resendtimer    {
-                      
-                      float: left;
-                      font-family: "Proxima Nova",'Open Sans', sans-serif;
-                      font-style: normal;
-                      font-weight: 500;
-                      font-size: 6px;
-                      color: #2A1563;
-                      margin: 0.5px;
-                  }            
-  
-  #resendOTPbtn1  {
-                  
-                  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: 500;
-                  font-size: 6px;
-                  line-height: 7px;
-                 margin: 0.5px;
-                  float: right;
-                  color: #2A1563;
-                 
-              }
-
-.altResendotp1{
-  opacity: 0.5;
-  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: 500;
-                  font-size: 6px;
-                  line-height: 7px;
-                 position: absolute;
-                  float: right;
-                  color: #2A1563;
-                  margin:0.5px;
-                  right: 0px;
-                  display: none;
 }
-  
-              #resendOTPbtn2  {
-                  
-                font-family: "Proxima Nova",'Open Sans', sans-serif;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 6px;
-                line-height: 7px;
-                margin: 1px 0px 0px 0px;
-                float: right;
-                color: #2A1563;
-               
-            }
 
-            .altResendotp2{
-              font-family: "Proxima Nova",'Open Sans', sans-serif;
-                font-style: normal;
-                font-weight: 500;
-                font-size: 6px;
-                line-height: 7px;
-               opacity: 0.5;
-                float: right;
-                color: #2A1563;
-                position: absolute;
-                margin: 1px 0px 0px 0px;
-                right: 0px;
-            }
-  
-  
-  #staticpin   {
-      top: 48px;
-  }
-  
-  
-  .setPwdwrapper{
-      top: 7.3px;
-      display: flex;
-      justify-content: center;
-  }      
-  
-  .setPwd  {
-                  
-                  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: 500;
-                  font-size: 6px;
-                  line-height: 7px;
-                  text-align: center;
-                  color: #2A1563;
-                  display: flex;
-                  justify-content: center;
-              }
-  
-.altSetpwd{
-  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: 500;
-                  font-size: 6px;
-                  line-height: 7px;
-                  text-align: center;
-                  color: #2A1563;
-                  display: flex;
-                  justify-content: center;
-                  position: absolute;
-                  margin: 0px;
-                  top: 0px;
-                  left: 50%;
-                  transform: translate(-50%,0);
-                  display: none;
-                  opacity: 0.5;
-}              
-  
-  
-  .verify{
-              position: relative;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              background: transparent;
-              height: 30px;
-              top: 20px;
-              width: 100%;
-          }
-  
-  
-  #verifyreset{
-    top: 43px;
-  }
-  
-  
-  
-  .resentOTP  {
-                position: relative;
-                width: 135px;
-                margin-left: 60px;
-              }
-  
-  .resentwrapper{
-                  top: 7.3px;
-                  display: flex;
-                  justify-content: center;
-                }              
-  
-  .resetlable   {
-                font-family: "Proxima Nova",'Open Sans', sans-serif;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 7px;
-                margin-right: 30px;
-                margin-left: 1px;
-                color: #273A49;
-              }              
-  
-  .rstOtpbox {
-  
-            width: 19px !important;
-            height: 19px !important;
-            max-height: 19px;
-            max-width: 19px;
-            border: 0.5px solid #E1E7F3;
-            padding: 5px 3px 5px 6.2px;
-            background: #f1f3f8;
-            outline: none;
-            border-radius: 2px;
-  
-          }            
-  
-  #rstotp{
-        width: 136px;
-        max-width: fit-content;
-      }       
-  
-  
-  .rstexpBoxcontainer{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    top: 15px;
-                  }    
-  
-  #createpassword {
-                      top: 22px;
-                  }                
-  
-  #confirmpassword {
-                    top: 29px;
-                  }  
-  
-  .rstwrap{
-    position: relative;
-    width: 207px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-  }
-                  .rstExplable   {
-                    position: absolute;
-                    font-family: "Proxima Nova",'Open Sans', sans-serif;
-                    font-style: normal;
-                    font-weight: normal;
-                    font-size: 7px;
-                    margin-right: 10px;
-                    color: #273A49;
-                }
-  
-  
-  
-                .rstExpbox     {
-                  position: absolute;
-                  width: 135px;
-                  max-width: fit-content;
-                  margin-top: 0px;
-                  right: 6px;
-              }   
-  
-  
-  
-              .resetexpbox     {
-                
-                width: 135px !important;
-                height: 19px !important;
-                max-height: 17px;
-                max-width: 135px;
-                border: 0.5px solid #E1E7F3;
-                padding: 10px 2px 9px 8.3px;
-                background: #f1f3f8;
-                outline: none;
-                border-radius: 2px;
-                font-size: 10px;
-                letter-spacing: 1px;
-                
-            }   
-  
-            #resetPwd{
-              height: 200px;
-              top: 45px;
-            }  
-  
-  
-  
-  .otpverifyBtn {
-                  position: relative;
-                  display: block;
-                  width: 120px;
-                  height: 22px;
-                  margin: 0px 0;
-                  background: #5F30E2;
-                  color: white;
-                  border: 0;
-                  font-size: 8px;
-                  font-weight: medium;
-                  border-radius: 2px;
-                  box-sizing: border-box;
-                  outline: none;
-                  cursor: pointer;
-              }
-  
-  .pinverifyBtn {
-      position: relative;
-      display: block;
-      width: 120px;
-      height: 22px;
-      margin: 0px 0;
-      background: #5F30E2;
-      color: white;
-      border: 0;
-      font-size: 8px;
-      font-weight: medium;
-      border-radius: 2px;
-      box-sizing: border-box;
-      outline: none;
-      cursor: pointer;
-  }
-  
-  .cancel {
-              position: relative;
-              display: flex;
-              justify-content: center;
-              top: 25px;
-              font-family: "Proxima Nova",'Open Sans', sans-serif;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 6px;
-              color: #273A49;
-          }
-  
-  .otpcancel {
-              position: relative;
-              display: flex;
-              justify-content: center;
-              top: 25px;
-              font-family: "Proxima Nova",'Open Sans', sans-serif;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 6px;
-              color: #273A49;
-          }        
-  
-  .pincancel {
-              position: relative;
-              display: flex;
-              justify-content: center;
-              top: 22px;
-              font-family: "Proxima Nova",'Open Sans', sans-serif;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 6px;
-              color: #273A49;
-          }
-  
-  #resetcancel{
-                top: 48px; 
-              }        
-  
-  
-  .pinlable   {
-                  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: normal;
-                  font-size: 8px;
-                  margin-right: 20px;
-                  color: #273A49;
-              }
-  
-                      
-  .explable   {
-                  font-family: "Proxima Nova",'Open Sans', sans-serif;
-                  font-style: normal;
-                  font-weight: normal;
-                  font-size: 7px;
-                  margin-right: 11px;
-                  color: #273A49;
-              }
-  
-  .atmpin     {
-                  width: 101px;
-                  max-width: fit-content;
-                  margin-top: 0px;
-              }   
-              
-  .expbox     {
-  
-                  width: 100px !important;
-                  height: 22px !important;
-                  max-height: 22px;
-                  max-width: 100px;
-                  border: 0.5px solid #E1E7F3;
-                  padding: 10px 7px 9px 8.3px;
-                  background: #f1f3f8;
-                  outline: none;
-                  border-radius: 2px;
-                  font-size: 10px;
-                  
-              }      
-              
-              .expBoxcontainer{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                top: 7px;
-            }
-  
-  
-              ::placeholder{
-                  bottom: 1.4px;
-                  color: rgba(0, 0, 0, 0.18);
-                  position: relative;
-                  font-size: 9px;
-                  
-              }
-  
-  
-              .expireinfo{
-                position: absolute;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: 6px;
-                color: #273A49;
-          }
-          
-          .expirewrapper{
-              position: absolute;
-              width: 100%;
-              height: auto;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              bottom: 50px;
-          }
-  
-  
-  
-  form {
-    position: relative;
-    top: 0px;
-    max-width: 100%;
-    margin: 0 auto;
-    height: auto;
-  }
-  form > div {
-    position: relative;
-    background: white;
-  }
-  form > div > label {
-    opacity: 0.3;
-    font-weight: bold;
-    position: absolute;
-    top: 22px;
-    left: 20px;
-  }
-  
-  
-  
-  form > div > input[type="password"]:focus {
-    outline: 0;
-    background: white;
-  }
-  
-  form > div > input[type="password"]:focus + label {
-    opacity: 0;
-  }
-  
-  form > div > input[type="password"]:valid + label {
-    opacity: 0;
-  }
-  
-  form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
-    background: pink;
-  }
-  
-  form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) + label {
-    opacity: 0;
-  }
-  
-  form > div > input[type="password"]:invalid:focus:not(:placeholder-shown) ~ .requirements {
-    max-height: auto;
-    padding: 0 30px 20px 50px;
-    z-index: 1;
-  }
-  form > div .requirements {
-    padding: 0 30px 0 50px;
-    color: #999;
-    max-height: 0;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    overflow: hidden;
-    color: red;
-    font-style: italic;
-  }
-  
-  
-  body {
-    
-    font-family: "Proxima Nova",'Open Sans','PT Sans', sans-serif;
-    padding: 0;
-    margin: 0;
-    
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  
-  
-  
-  
-  
+button.active {
+  background-color: #2a1563;
+  color: white;
+}
+
+#quest_otp {
+  position: relative;
+  top: 40px;
+  font-size: 8px;
+  width: 182px;
+  text-align: center;
+  color: #737a8d;
+}
+
+.sendotp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.sendotpBtn {
+  display: block;
+  width: 89px;
+  height: 22px;
+  margin: 20px 0;
+  background: #5f30e2;
+  color: white;
+  border: 0;
+  font-size: 8px;
+  font-weight: bold;
+  border-radius: 2px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+}
+
+.otpBoxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0px;
+  float: left;
+}
+
+.otp {
+  width: 154px;
+  max-width: fit-content;
+}
+
+#otpexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 7px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#pinexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#pinExpexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#passexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#rstotpexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#rstexpexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#createexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+#confirmexclaim {
+  position: absolute;
+  height: 9.5px;
+  width: 10px;
+  top: 6px;
+  margin-left: 5px;
+  opacity: 0;
+}
+
+.statpin {
+  width: 167px;
+  max-width: fit-content;
+}
+
+#statpinbtn {
+  margin-top: 20px;
+}
+
+.otpbox {
+  width: 22px !important;
+  height: 22px !important;
+  max-height: 22px;
+  max-width: 22px;
+  border: 0.5px solid #e1e7f3;
+  padding: 9px 7px 9px 8.3px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+}
+
+.pinbox {
+  width: 22px !important;
+  height: 22px !important;
+  max-height: 22px;
+  max-width: 22px;
+  border: 0.5px solid #e1e7f3;
+  padding: 9px 0px 9px 8.35px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+}
+
+.passbox {
+  width: 167px !important;
+  height: 22px !important;
+  max-height: 22px;
+  max-width: 167px;
+  border: 0.5px solid #e1e7f3;
+  padding: 9px 8px 9px 8px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+  letter-spacing: 5.7px;
+}
+
+.resendwrapper {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  float: left;
+}
+
+.resendOTP {
+  position: relative;
+  width: 153px;
+}
+
+a[disabled] {
+  color: gray;
+}
+
+a.disabled {
+  color: gray;
+}
+
+.resendtimer {
+  float: left;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  color: #2a1563;
+  margin: 0.5px;
+}
+
+#resendOTPbtn1 {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  margin: 0.5px;
+  float: right;
+  color: #2a1563;
+}
+
+.altResendotp1 {
+  opacity: 0.5;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  position: absolute;
+  float: right;
+  color: #2a1563;
+  margin: 0.5px;
+  right: 0px;
+  display: none;
+}
+
+#resendOTPbtn2 {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  margin: 1px 0px 0px 0px;
+  float: right;
+  color: #2a1563;
+}
+
+.altResendotp2 {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  opacity: 0.5;
+  float: right;
+  color: #2a1563;
+  position: absolute;
+  margin: 1px 0px 0px 0px;
+  right: 0px;
+}
+
+.setPwdwrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  float: left;
+}
+
+.setPwd {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  text-align: center;
+  color: #2a1563;
+  display: flex;
+  justify-content: center;
+}
+
+.altSetpwd {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 7px;
+  text-align: center;
+  color: #2a1563;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin: 0px;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: none;
+  opacity: 0.5;
+}
+
+.verify {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  margin-top: 17px;
+  width: 100%;
+  float: left;
+}
+
+.resentOTP {
+  position: relative;
+  width: 135px;
+  margin-left: 60px;
+}
+
+.resentwrapper {
+  margin-top: 7.3px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  float: left;
+}
+
+.resetlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin-right: 30px;
+  margin-left: 1px;
+  color: #273a49;
+}
+
+.rstOtpbox {
+  width: 19px !important;
+  height: 19px !important;
+  max-height: 19px;
+  max-width: 19px;
+  border: 0.5px solid #e1e7f3;
+  padding: 5px 3px 5px 6.2px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+}
+
+#rstotp {
+  width: 136px;
+  max-width: fit-content;
+}
+
+.rstexpBoxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  float: left;
+  margin-top: 8px;
+}
+
+#createpassword {
+  margin-top: 8px;
+}
+
+#confirmpassword {
+  margin-top: 8px;
+}
+
+.rstwrap {
+  position: relative;
+  width: 207px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+.rstExplable {
+  position: absolute;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin-right: 10px;
+  color: #273a49;
+}
+
+.rstExpbox {
+  position: absolute;
+  width: 135px;
+  max-width: fit-content;
+  margin-top: 0px;
+  right: 6px;
+}
+
+.resetexpbox {
+  width: 135px !important;
+  height: 19px !important;
+  max-height: 17px;
+  max-width: 135px;
+  border: 0.5px solid #e1e7f3;
+  padding: 10px 2px 9px 8.3px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+#resetPwd {
+  margin-top: 15px;
+}
+
+.otpverifyBtn {
+  position: relative;
+  display: block;
+  width: 120px;
+  height: 22px;
+  margin: 0px 0;
+  background: #5f30e2;
+  color: white;
+  border: 0;
+  font-size: 8px;
+  font-weight: medium;
+  border-radius: 2px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+}
+
+.pinverifyBtn {
+  position: relative;
+  display: block;
+  width: 120px;
+  height: 22px;
+  margin: 0px 0;
+  background: #5f30e2;
+  color: white;
+  border: 0;
+  font-size: 8px;
+  font-weight: medium;
+  border-radius: 2px;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
+}
+
+.cancel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 25px;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  color: #273a49;
+}
+
+.otpcancel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 7px;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  color: #273a49;
+  width: 100%;
+  float: left;
+}
+
+.pincancel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 6px;
+  color: #273a49;
+  width: 100%;
+  float: left;
+}
+
+.pinlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin-right: 20px;
+  color: #273a49;
+}
+
+.explable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin-right: 11px;
+  color: #273a49;
+}
+
+.atmpin {
+  width: 101px;
+  max-width: fit-content;
+  margin-top: 0px;
+}
+
+#atmpin {
+  margin-top: 15px;
+}
+
+.expbox {
+  width: 100px !important;
+  height: 22px !important;
+  max-height: 22px;
+  max-width: 100px;
+  border: 0.5px solid #e1e7f3;
+  padding: 10px 7px 9px 8.3px;
+  background: #f1f3f8;
+  outline: none;
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+.expBoxcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 7px;
+  float: left;
+}
+
+::placeholder {
+  bottom: 1.4px;
+  color: rgba(0, 0, 0, 0.18);
+  position: relative;
+  font-size: 9px;
+}
+
+.expireinfo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 6px;
+  color: #273a49;
+}
+
+.expirewrapper {
+  position: absolute;
+  width: 100%;
+  float: left;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -8px;
+}
+
+form {
+  position: relative;
+  margin: 0 auto;
+}
+form > div {
+  position: relative;
+  background: white;
+}
+form > div > label {
+  opacity: 0.3;
+  font-weight: bold;
+  position: absolute;
+  top: 22px;
+  left: 20px;
+}
+
+form > div > input[type="password"]:focus {
+  outline: 0;
+  background: white;
+}
+
+form > div > input[type="password"]:focus + label {
+  opacity: 0;
+}
+
+form > div > input[type="password"]:valid + label {
+  opacity: 0;
+}
+
+form
+  > div
+  > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+  border: pink;
+}
+
+form
+  > div
+  > input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
+  + label {
+  opacity: 0;
+}
+
+form
+  > div
+  > input[type="password"]:invalid:focus:not(:placeholder-shown)
+  ~ .requirements {
+  max-height: auto;
+  padding: 0 30px 20px 50px;
+  z-index: 1;
+}
+form > div .requirements {
+  padding: 0 30px 0 50px;
+  color: #999;
+  max-height: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  overflow: hidden;
+  color: red;
+  font-style: italic;
+}
+
+body {
+  font-family: "Proxima Nova", "Open Sans", "PT Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

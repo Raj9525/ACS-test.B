@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="300;https://yappay.in" /> 
-    
+   <!-- <meta http-equiv="refresh" content="300;https://yappay.in" /> -->
+    <title>Document</title>
     <link rel="stylesheet" media="screen and (max-width: 389px)" href="250X400.css">
     <link rel="stylesheet" media="screen and (min-width: 390px) and (max-width: 499px)" href="390X400.css">
     <link rel="stylesheet" media="screen and (min-width: 500px) and (max-width: 599px)" href="500X600.css">
@@ -13,7 +13,8 @@
     <link rel="stylesheet" media="screen and (min-width: 1021px) and (max-width:1439px)" href="1366X768.css">
     <link rel="stylesheet" media="screen and (min-width: 1440px)" href="1440X900.css">
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
 .config{
   position: absolute;
@@ -35,11 +36,11 @@
 <div class="errorBox" id="errorBox">
   <img class="exclaim" src="img/exclaim.png" alt="">
   <p class="invalidotp" id="msginvalid">Invaild OTP</p>
-  <img class="crossbar" src="img/crossbar.png" alt="">
+  <img class="crossbar" src="img/crossbar.png" alt="" onclick="clserr();">
 </div>
 </div>
-
-<div id="otpinfo">
+<div class="contentwrapper">
+<div id="otpinfo"> 
    
     <p class="otpins" id="otpins">Please enter your Received OTP in the field below to confirm your identy for this purchase. This information is not shared with the merchant.</p>
 </div>
@@ -97,7 +98,7 @@
 
 <div class="wrapperBar">
   <div class="tabbar" id="tabbar" >
-    <button class="tabbtn" onclick="tabOpen(event, 'reqOTP');container( 0, 100);foot1(196,210);" id="otptab"><span>OTP</span></button>
+    <button class="tabbtn" onclick="tabOpen(event, 'otpenter');container( 0, 100);foot1(196,210);disablelink1();" id="otptab"><span>OTP</span></button>
     <button class="tabbtn" onclick="tabOpen(event, 'atmpin');container( 0, 100);foot1(196,210);" id="atmpin_tab" ><span>ATM PIN</span></button>
     <button class="tabbtn" onclick="tabOpen(event, 'staticpin');container( 0,100);foot1(196,210);" id="staticpin_tab" ><span>STATIC PIN</span></button>
   </div>
@@ -110,24 +111,15 @@
 
 
 
-<div  class="dyncnt" id="reqOTP">
-  <div id="otpreq">
-    <div id="wrapperotp" >
-      <div id="quest_otp" style="top: 0px;">
-        <p >Do you want to trigger OTP (one time password) for this transaction?</p>
-      </div>
-    </div>
 
-    <form action="#"> 
-      <div class="sendotp">
+
+
         
-        <input class="sendotpBtn" id="sendotpBtn" onclick="tabOpen(event, 'otpenter');container( 0,100);tabclr();foot1(196,210);disablelink1();countdown();" type="submit" value="SEND OTP"/>
+        <input class="sendotpBtn" id="sendotpBtn" onclick="" type="submit" value="SEND OTP" style="display: none;"/>
       
-      </div>
-    </form>
+
     
-  </div>
-</div>
+
 
 
 
@@ -137,15 +129,15 @@
 
 <div class="dyncnt" id="otpenter">
 
-  <form action="#">
+  <form id="otpform" name="otpauth" action="" onsubmit="">
     <div class="otpBoxcontainer">
         <div class="otp">
-          <input type="password" class="otpbox" id="otpbox1"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox2')"/>
-          <input type="password" class="otpbox" id="otpbox2"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox3')"/>
-          <input type="password" class="otpbox" id="otpbox3"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox4')"/>
-          <input type="password" class="otpbox" id="otpbox4"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox5')"/>
-          <input type="password" class="otpbox" id="otpbox5"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox6')"/>
-          <input type="password" class="otpbox" id="otpbox6"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" />
+          <input type="password" class="otpbox" id="otpbox1"  name="OTP1" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox2')"/>
+          <input type="password" class="otpbox" id="otpbox2"  name="OTP2" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox3')"/>
+          <input type="password" class="otpbox" id="otpbox3"  name="OTP3" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox4')"/>
+          <input type="password" class="otpbox" id="otpbox4"  name="OTP4" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox5')"/>
+          <input type="password" class="otpbox" id="otpbox5"  name="OTP5" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox6')"/>
+          <input type="password" class="otpbox" id="otpbox6"  name="OTP6" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" />
           <img class="otpexclaim" id="otpexclaim" src="img/exclaim.png" alt="">
           <div class="requirements">
               Your OTP must be in numbers.
@@ -154,14 +146,14 @@
     </div>  
     <div class="resendwrapper">
         <div class="resendOTP">
-          <p class="resendtimer"><span id="minutes">00</span>:<span id="seconds">60</span></p>
+          <p class="resendtimer"><span id="minutes">01</span>:<span id="seconds">00</span></p>
           <a href="#" class="disablelnk" id="resendOTPbtn1" onclick="countdown();disablelink1();" >RESEND OTP</a>
           <p class="altResendotp1" id="altResendotp1">RESEND OTP</p>
         </div>
     </div>
 
 <div class="verify">
-  <input onclick="otperrorBox();dblotpbtn();" class="otpverifyBtn" id="otpverifybtn" type="submit" value="VERIFY & PROCEED" />
+  <input onclick="" class="otpverifyBtn" id="otpverifybtn" type="submit" value="VERIFY & PROCEED" />
     <img class="loader" id="otploader" src="img/ACS_loader.gif" alt="">
 </div>
 
@@ -180,7 +172,7 @@
 <div  class="dyncnt" id="atmpin">
   <div class="" id="otpenter">
 
-    <form action="#">
+    <form action="" onsubmit="">
       <div class="otpBoxcontainer">
           <p class="pinlable">PIN No.</p>
             <div class="atmpin">
@@ -207,7 +199,7 @@
       
 
   <div class="verify" id="pinverify">
-    <input onclick="pinerrorBox();expiryerrorBox();dblpinbtn();" class="pinverifyBtn" id="pinverifybtn" type="submit" value="VERIFY & PROCEED" />
+    <input onclick="dblpinbtn();" class="pinverifyBtn" id="pinverifybtn" type="submit" value="VERIFY & PROCEED" />
     <img class="loader" id="pinloader" src="img/ACS_loader.gif" alt="">
   </div>
   
@@ -237,13 +229,13 @@
 
     <div class="setPwdwrapper">
         <div class="resendOTP">
-          <a href="#" class="setPwd" id="setPwd" onclick="tabOpen(event, 'resetPwd');container(499);container1(850);container2(960);tabclr2();foot1(95,110);disablelink2();countdown1();">SET / RESET PIN</a>
+          <a href="#" class="setPwd" id="setPwd" onclick="tabOpen(event, 'resetPwd');container(480);container1(850);container2(1000);tabclr2();foot1(95,110);disablelink2();countdown1();">SET / RESET PIN</a>
           <p class="altSetpwd" id="altSetpwd">SET / RESET PIN</p>
         </div>
     </div>
 
 <div class="verify" id="statpinbtn">
-  <input onclick="passerrorBox();dblpassbtn();" class="otpverifyBtn" id="passbtn" type="submit" value="VERIFY & PROCEED"/>
+  <input onclick="dblpassbtn();" class="otpverifyBtn" id="passbtn" type="submit" value="VERIFY & PROCEED"/>
   <img class="loader" id="passloader" src="img/ACS_loader.gif" alt="">
 </div>
 
@@ -279,7 +271,7 @@
     </div>  
     <div class="resentwrapper">
         <div class="resentOTP">
-          <p class="resendtimer"><span id="minutes1">00</span>:<span id="seconds1">60</span></p>
+          <p class="resendtimer"><span id="minutes1"></span>:<span id="seconds1"></span></p>
           <a href="#" class="disablelnk" id="resendOTPbtn2" onclick="countdown1();disablelink2();">RESEND OTP</a>
           <p class="altResendotp2" id="altResendotp2">RESEND OTP</p>
         </div>
@@ -326,7 +318,7 @@
 
 
 <div class="verify" id="verifyreset">
-  <input onclick="expiryerrorBox();resetOTPerrorBox();dblsubmitbtn();" class="otpverifyBtn" id="submitbtn" type="submit" value="SUBMIT"/>
+  <input onclick="dblsubmitbtn();" class="otpverifyBtn" id="submitbtn" type="submit" value="SUBMIT"/>
   <img class="loader" id="resetloader" src="img/ACS_loader.gif" alt="">
 </div>
 
@@ -337,13 +329,14 @@
 </div>
 
 
-<div class="expirewrapper" id="expirewrapper">
-<div class="expireinfo" id="expireinfo">
-  <p>Page will expire in <span id="minutes2"></span>:<span id="seconds2"></span> minutes</p>
-</div>
-</div>
 
+</div>
 <div id="footer">
+  <div class="expirewrapper" id="expirewrapper">
+    <div class="expireinfo" id="expireinfo">
+      <p>Page will expire in <span id="minutes2"></span>:<span id="seconds2"></span> minutes</p>
+    </div>
+    </div>
   <div class="logowrapper">
   <div class="pci">
   <img src="img/pci_dss.png" id="pci_logo" />
