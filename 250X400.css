@@ -660,6 +660,10 @@ a.disabled {
   width: 100%;
   float: left;
   margin-top: 8px;
+  color: #273a49;
+}
+#rstexpboxcontainer {
+  height: 15px;
 }
 
 #createpassword {
@@ -799,6 +803,11 @@ a.disabled {
   height: 22px;
 }
 
+#rstinside {
+  width: 205px;
+  height: 22px;
+}
+
 .pinlable {
   font-family: "Proxima Nova", "Open Sans", sans-serif;
   font-style: normal;
@@ -817,24 +826,48 @@ a.disabled {
   color: #273a49;
 }
 
+.rstexplable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin: 0px 11px 0px 4px;
+  color: #273a49;
+}
+.rstexpin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 05px;
+}
+
 .expin {
   height: 22px;
   top: -2px;
   position: absolute;
-  right: 07px;
+  right: 06px;
 }
 #year {
-  width: 47.5px;
+  width: 48px;
 }
 
 #month {
-  width: 47.5px;
+  width: 48px;
+}
+
+#rstyear {
+  width: 65px;
+}
+
+#rstmonth {
+  width: 65px;
 }
 
 select {
   font-size: 8px;
   outline: none;
   border: hotpink;
+  color: rgba(0, 0, 0, 0.521);
   background-color: #e1e7f3;
   border-radius: 3px;
   height: 15px;

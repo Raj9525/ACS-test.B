@@ -365,8 +365,6 @@ button.active {
   justify-content: center;
 }
 
-
-
 .otpBoxcontainer {
   display: flex;
   align-items: center;
@@ -385,7 +383,7 @@ button.active {
   float: left;
   margin-top: 11px;
   position: relative;
-    height: 40px;
+  height: 40px;
 }
 
 .statpin {
@@ -638,6 +636,7 @@ a.disabled {
   width: 100%;
   float: left;
   margin-top: 26px;
+  color: #273a49;
 }
 
 .rstwrap {
@@ -738,11 +737,93 @@ a.disabled {
   color: #273a49;
 }
 
+#inside {
+  height: 22px;
+}
+
+#rstinside {
+  width: 370px;
+  height: 22px;
+}
+
+.pinlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 20px 0px 0px;
+  color: #273a49;
+}
+
+.explable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 11px 0px 0px;
+  color: #273a49;
+}
+
+.rstexplable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  margin: 0px 11px 0px 0px;
+  color: #273a49;
+}
+.rstexpin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 0px;
+}
+#rstexpboxcontainer {
+  height: 15px;
+}
+
+.expin {
+  height: 30px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  right: 0px;
+}
+#year {
+  width: 84px;
+  height: 25px;
+}
+
+#month {
+  width: 84px;
+  height: 25px;
+}
+
+#rstyear {
+  width: 104px;
+  height: 25px;
+}
+
+#rstmonth {
+  width: 104px;
+  height: 25px;
+}
+
+select {
+  font-size: 14px;
+  outline: none;
+  border: hotpink;
+  color: rgba(0, 0, 0, 0.521);
+  background-color: #e1e7f3;
+  border-radius: 3px;
+  height: 15px;
+}
+
 #resetcancel {
   margin-top: 21px;
 }
 
-.insidewrapper{
+.insidewrapper {
   position: absolute;
   width: 300px;
   height: 40px;
@@ -769,7 +850,6 @@ a.disabled {
   font-size: 12px;
   margin-right: 31px;
   color: #273a49;
-  
 }
 
 .atmpin {

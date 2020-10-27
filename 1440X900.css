@@ -418,6 +418,7 @@ button.active {
   justify-content: center;
   width: 100%;
   float: left;
+  height: 48px;
 }
 
 .expBoxcontainer {
@@ -427,6 +428,7 @@ button.active {
   width: 100%;
   margin-top: 14px;
   float: left;
+  height: 50px;
 }
 
 .statpin {
@@ -645,7 +647,7 @@ a.disabled {
 }
 
 .resentwrapper {
-  margin-top: 16px;
+  margin-top: 5px;
   width: 100%;
   float: left;
   display: flex;
@@ -657,7 +659,7 @@ a.disabled {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
-  margin-right: 105px;
+  margin-right: 97px;
   margin-left: 0px;
   color: #273a49;
 }
@@ -668,15 +670,16 @@ a.disabled {
   max-height: 40px;
   max-width: 40px;
   border: 0.5px solid #e1e7f3;
-  padding: 8px 3px 8px 15.3px;
+  padding: 8px 3px 8px 15px;
   background: #f1f3f8;
   outline: none;
   border-radius: 2px;
   font-size: 22px;
+  margin-left: 0.9px;
 }
 
 #rstotp {
-  width: 262px;
+  width: 267px;
   max-width: fit-content;
 }
 
@@ -687,14 +690,16 @@ a.disabled {
   width: 100%;
   margin-top: 25px;
   float: left;
+  height: 30px;
+  color: #273a49;
 }
 
 #createpassword {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 #confirmpassword {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .rstwrap {
@@ -703,16 +708,6 @@ a.disabled {
   height: 20px;
   display: flex;
   align-items: center;
-}
-.rstExplable {
-  position: absolute;
-  font-family: "Proxima Nova", "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  margin-right: 10px;
-  margin-left: 0px;
-  color: #273a49;
 }
 
 .rstExpbox {
@@ -795,6 +790,97 @@ a.disabled {
   color: #273a49;
 }
 
+.insidewrapper {
+  position: absolute;
+  width: 349px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+}
+
+#inside {
+  height: 30px;
+}
+
+#rstinside {
+  width: 433px;
+  height: 28px;
+}
+
+.pinlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 20px 0px 0px;
+  color: #273a49;
+}
+
+.explable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 11px 0px 0px;
+  color: #273a49;
+}
+
+.rstexplable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0px 11px 0px 5px;
+  color: #273a49;
+}
+.rstexpin {
+  height: 28px;
+  top: -2px;
+  position: absolute;
+  right: 0px;
+}
+#rstexpboxcontainer {
+  height: 28px;
+}
+
+.expin {
+  height: 30px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  right: 04px;
+}
+#year {
+  width: 104px;
+  height: 30px;
+}
+
+#month {
+  width: 104px;
+  height: 30px;
+}
+
+#rstyear {
+  width: 130px;
+  height: 28px;
+}
+
+#rstmonth {
+  width: 130px;
+  height: 28px;
+}
+
+select {
+  font-size: 14px;
+  outline: none;
+  color: rgba(0, 0, 0, 0.521);
+  background-color: #e1e7f3;
+  border-radius: 3px;
+  height: 15px;
+  border: none;
+}
+
 #resetcancel {
   margin-top: 15px;
 }
@@ -804,7 +890,7 @@ a.disabled {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  margin-right: 80px;
+  margin-right: 71px;
   color: #273a49;
 }
 
@@ -813,13 +899,15 @@ a.disabled {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  margin-right: 48px;
+  margin-right: 30px;
   color: #273a49;
 }
 
 .atmpin {
   width: 216px;
   max-width: fit-content;
+  position: absolute;
+  right: 03px;
 }
 
 #atmpin1 {

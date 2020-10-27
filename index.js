@@ -539,6 +539,10 @@ function foc() {
 }
 
 
+
+
+
+
 for (y = 10; y <= 45; y++) {
     var optn = document.createElement("OPTION");
     optn.text = y;
@@ -574,4 +578,42 @@ for (m = 0; m <= 11; m++) {
       optn.selected = true;
     }*/
     document.getElementById('month').options.add(optn);
+}
+
+
+for (y1 = 10; y1 <= 45; y1++) {
+    var optn1 = document.createElement("OPTION");
+    optn1.text = y1;
+    optn1.value = y1;
+
+    /*if (y == 2015) {
+      optn.selected = true;
+    }*/
+
+    document.getElementById('rstyear').options.add(optn1);
+}
+
+
+var d1 = new Date();
+var monthArray1 = new Array();
+monthArray1[0] = "01";
+monthArray1[1] = "02";
+monthArray1[2] = "03";
+monthArray1[3] = "04";
+monthArray1[4] = "05";
+monthArray1[5] = "06";
+monthArray1[6] = "07";
+monthArray1[7] = "08";
+monthArray1[8] = "09";
+monthArray1[9] = "10";
+monthArray1[10] = "11";
+monthArray1[11] = "12";
+for (m1 = 0; m1 <= 11; m1++) {
+    var optn1 = document.createElement("OPTION");
+    optn1.text = monthArray1[m1];
+    optn1.value = (m1 + 1);
+    /*if (m == 5) {
+      optn.selected = true;
+    }*/
+    document.getElementById('rstmonth').options.add(optn1);
 }

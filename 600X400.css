@@ -412,6 +412,7 @@ button.active {
   justify-content: center;
   width: 100%;
   float: left;
+  height: 20px;
 }
 
 .expBoxcontainer {
@@ -421,6 +422,7 @@ button.active {
   width: 100%;
   float: left;
   margin-top: 7px;
+  height: 20px;
 }
 
 .otp {
@@ -610,7 +612,7 @@ a.disabled {
 .resentOTP {
   position: relative;
   width: 245px;
-  padding-left: 80px;
+  padding-left: 83px;
   box-sizing: border-box;
 }
 
@@ -628,7 +630,7 @@ a.disabled {
   font-weight: normal;
   font-size: 8px;
   margin-right: 46px;
-  margin-left: 1px;
+  margin-left: 0px;
   color: #273a49;
 }
 
@@ -647,6 +649,7 @@ a.disabled {
 #rstotp {
   width: 169px;
   max-width: fit-content;
+  margin-left: 3px;
 }
 
 .rstexpBoxcontainer {
@@ -656,6 +659,7 @@ a.disabled {
   width: 100%;
   margin-top: 9px;
   float: left;
+  color: #273a49;
 }
 
 .rstwrap {
@@ -771,6 +775,91 @@ a.disabled {
   color: #273a49;
   width: 100%;
   float: left;
+}
+
+.insidewrapper {
+  position: absolute;
+  width: 140px;
+  height: 22px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+#inside {
+  height: 22px;
+}
+
+#rstinside {
+  width: 260px;
+  height: 22px;
+}
+
+.pinlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 20px 0px 0px;
+  color: #273a49;
+}
+
+.explable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin: 0px 11px 0px 0px;
+  color: #273a49;
+}
+
+.rstexplable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 11px 0px 6px;
+  color: #273a49;
+}
+.rstexpin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 04px;
+}
+#rstexpboxcontainer {
+  height: 15px;
+}
+
+.expin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 05px;
+}
+#year {
+  width: 42.5px;
+}
+
+#month {
+  width: 42.5px;
+}
+
+#rstyear {
+  width: 81px;
+}
+
+#rstmonth {
+  width: 81px;
+}
+
+select {
+  font-size: 8px;
+  outline: none;
+  border: hotpink;
+  color: rgba(0, 0, 0, 0.521);
+  background-color: #e1e7f3;
+  border-radius: 3px;
+  height: 15px;
 }
 
 .pinlable {

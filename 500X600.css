@@ -425,6 +425,7 @@ button.active {
   justify-content: center;
   width: 100%;
   float: left;
+  height: 22px;
 }
 
 .expBoxcontainer {
@@ -434,6 +435,7 @@ button.active {
   width: 100%;
   margin-top: 7px;
   float: left;
+  height: 22px;
 }
 
 .otp {
@@ -611,7 +613,7 @@ a.disabled {
   justify-content: center;
   background: transparent;
   height: 30px;
-  margin-top: 15px;
+  margin-top: 13px;
   width: 100%;
   float: left;
 }
@@ -666,6 +668,7 @@ a.disabled {
   margin-top: 10px;
   width: 100%;
   float: left;
+  color: #273a49;
 }
 
 #createpassword {
@@ -788,6 +791,91 @@ a.disabled {
   color: #273a49;
   width: 100%;
   float: left;
+}
+
+.insidewrapper {
+  position: absolute;
+  width: 140px;
+  height: 22px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+#inside {
+  height: 22px;
+}
+
+#rstinside {
+  width: 260px;
+  height: 22px;
+}
+
+.pinlable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 20px 0px 0px;
+  color: #273a49;
+}
+
+.explable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  margin: 0px 11px 0px 0px;
+  color: #273a49;
+}
+
+.rstexplable {
+  font-family: "Proxima Nova", "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  margin: 0px 11px 0px 5px;
+  color: #273a49;
+}
+.rstexpin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 05px;
+}
+#rstexpboxcontainer {
+  height: 15px;
+}
+
+.expin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 05px;
+}
+#year {
+  width: 42.5px;
+}
+
+#month {
+  width: 42.5px;
+}
+
+#rstyear {
+  width: 81.5px;
+}
+
+#rstmonth {
+  width: 81.5px;
+}
+
+select {
+  font-size: 8px;
+  outline: none;
+  border: hotpink;
+  color: rgba(0, 0, 0, 0.521);
+  background-color: #e1e7f3;
+  border-radius: 3px;
+  height: 15px;
 }
 
 .pinlable {
