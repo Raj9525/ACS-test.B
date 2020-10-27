@@ -617,3 +617,11 @@ for (m1 = 0; m1 <= 11; m1++) {
     }*/
     document.getElementById('rstmonth').options.add(optn1);
 }
+
+function clearall() {
+    $('input').val('');
+    document.getElementById('otpbox1').focus();
+    document.getElementById('pinbox1').focus();
+    document.getElementById('passbox').focus();
+    document.getElementById('rstotpbox1').focus();
+}
