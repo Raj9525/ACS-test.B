@@ -350,6 +350,7 @@ button.active {
   width: 100%;
   margin-top: 0px;
   float: left;
+  height: 22px;
 }
 
 .otp {
@@ -607,6 +608,10 @@ a.disabled {
   float: left;
 }
 
+#pinverify {
+  margin-top: 12px;
+}
+
 .resentOTP {
   position: relative;
   width: 135px;
@@ -782,12 +787,24 @@ a.disabled {
   float: left;
 }
 
+.insidewrapper {
+  position: absolute;
+  width: 153px;
+  height: 22px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+#inside {
+  height: 22px;
+}
+
 .pinlable {
   font-family: "Proxima Nova", "Open Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 8px;
-  margin-right: 20px;
+  margin: 0px 20px 0px 0px;
   color: #273a49;
 }
 
@@ -796,8 +813,31 @@ a.disabled {
   font-style: normal;
   font-weight: normal;
   font-size: 7px;
-  margin-right: 11px;
+  margin: 0px 11px 0px 0px;
   color: #273a49;
+}
+
+.expin {
+  height: 22px;
+  top: -2px;
+  position: absolute;
+  right: 07px;
+}
+#year {
+  width: 47.5px;
+}
+
+#month {
+  width: 47.5px;
+}
+
+select {
+  font-size: 8px;
+  outline: none;
+  border: hotpink;
+  background-color: #e1e7f3;
+  border-radius: 3px;
+  height: 15px;
 }
 
 .atmpin {
@@ -830,6 +870,8 @@ a.disabled {
   width: 100%;
   margin-top: 7px;
   float: left;
+  height: 22px;
+  position: relative;
 }
 
 ::placeholder {

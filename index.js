@@ -307,7 +307,7 @@ var mins = 1;
 var secs = mins * 60;
 
 window.onload = countdown();
-    function countdown() {
+function countdown() {
     setTimeout('Decrement()', 60);
     mins = 1;
     secs = mins * 60;
@@ -459,27 +459,27 @@ function mvCursor(from, to, valid) {
     var to = document.getElementById(to);
     var maxLgth = from.getAttribute("maxlength");
     var minLgth = from.getAttribute('minlength');
-    
-if (lgth == minLgth) {
-            document.getElementById("resetconfirm").disabled = false;
-        }
+
+    if (lgth == minLgth) {
+        document.getElementById("resetconfirm").disabled = false;
+    }
 
     else if (lgth !== maxLgth && !from.value.match(valid)) {
         to.disabled = "true";
         from.focus();
-       // alert("should be between" + val);
+        // alert("should be between" + val);
         return false;
     }
 
-    else if(lgth == maxLgth && from.value.match(valid)){
+    else if (lgth == maxLgth && from.value.match(valid)) {
         to.disabled = false;
         to.focus();
         //getvalues();
     }
-    
-  
-    }
-    
+
+
+}
+
 
 /*
 
@@ -518,10 +518,10 @@ $('#resetconfirm,#resetcreate').on('keyup', function () {
 
 
 
-function otpvalid(val,idi) {
-    
+function otpvalid(val, idi) {
+
     if (idi.value.match(val)) {
-document.getElementById("otpverifybtn").disabled = false;
+        document.getElementById("otpverifybtn").disabled = false;
         document.getElementById("pinverifybtn").disabled = false;
         document.getElementById("passbtn").disabled = false;
         document.getElementById("submitbtn").disabled = false;
@@ -534,7 +534,44 @@ function foc() {
     document.getElementById("pinbox1").focus();
     document.getElementById("passbox").focus();
     document.getElementById("rstotpbox1").focus();
-        //for (var i = 0; i < otpinps.length; i++) {
-        //var otpinp = otpinps[i];
+    //for (var i = 0; i < otpinps.length; i++) {
+    //var otpinp = otpinps[i];
 }
 
+
+for (y = 10; y <= 45; y++) {
+    var optn = document.createElement("OPTION");
+    optn.text = y;
+    optn.value = y;
+
+    /*if (y == 2015) {
+      optn.selected = true;
+    }*/
+
+    document.getElementById('year').options.add(optn);
+}
+
+
+var d = new Date();
+var monthArray = new Array();
+monthArray[0] = "01";
+monthArray[1] = "02";
+monthArray[2] = "03";
+monthArray[3] = "04";
+monthArray[4] = "05";
+monthArray[5] = "06";
+monthArray[6] = "07";
+monthArray[7] = "08";
+monthArray[8] = "09";
+monthArray[9] = "10";
+monthArray[10] = "11";
+monthArray[11] = "12";
+for (m = 0; m <= 11; m++) {
+    var optn = document.createElement("OPTION");
+    optn.text = monthArray[m];
+    optn.value = (m + 1);
+    /*if (m == 5) {
+      optn.selected = true;
+    }*/
+    document.getElementById('month').options.add(optn);
+}

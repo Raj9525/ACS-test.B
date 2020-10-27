@@ -160,7 +160,7 @@
           <div class="resendwrapper">
             <div class="resendOTP">
               <p class="resendtimer"><span id="minutes">01</span>:<span id="seconds">00</span></p>
-              <a href="#" class="disablelnk" id="resendOTPbtn1" onclick="countdown();">RESEND OTP</a>
+              <a href="#" class="disablelnk" id="resendOTPbtn1" onclick="countdown();disablelink1();">RESEND OTP</a>
               <p class="altResendotp1" id="altResendotp1">RESEND OTP</p>
             </div>
           </div>
@@ -207,15 +207,15 @@
               </div>
             </div>
             <div class="expBoxcontainer">
-              <div class="insidewrapper">
+              <div class="insidewrapper" id="inside">
                 <p class="explable">Expiry Date</p>
-                <div class="atmpin">
-                  <input type="number" class="expbox" id="expbox" name="PIN[]" maxlength="4" max="9999" required
-                    placeholder="mm/yy" pattern="(?=.*\d).{4,4}" onkeyup="otpvalid(this.pattern,this);" disabled />
-                  <img class="pinExpexclaim" id="pinExpexclaim" src="img/exclaim.png" alt="">
-                  <div class="req">
-                    Format 0425 (MMYY).
-                  </div>
+                <div class="expin">
+                  <select name="month" id="month">
+                    <option value="">MM</option>
+                  </select>
+                  <select name="year" id="year">
+                    <option value="">YY</option>
+                  </select>
                 </div>
               </div>
             </div>
