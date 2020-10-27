@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Proxima+Nova");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
 
 .loader {
-  height: 21px;
+  height: 18px;
   width: auto;
   position: absolute;
   opacity: 0;
@@ -98,6 +97,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  float: left;
 }
 
 .errorBox {
@@ -114,6 +115,7 @@
   visibility: hidden;
   opacity: 0;
   transition: 0.5s ease-in-out;
+  margin-bottom: 0px;
 }
 
 .exclaim {
@@ -698,7 +700,7 @@ a.disabled {
   background: #5f30e2;
   color: white;
   border: 0;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: medium;
   border-radius: 2px;
   box-sizing: border-box;
@@ -848,68 +850,69 @@ form {
   float: left;
 }
 
-form > div {
-  position: relative;
-  background: white;
-  /*border-bottom: 1px solid #ccc;*/
-}
-form > div > label {
-  opacity: 0.3;
-  font-weight: bold;
-  position: absolute;
-  top: 22px;
-  left: 20px;
+input:focus {
+  background: #ffffff;
 }
 
-form > div > input[type="password"]:focus {
-  outline: 0;
+input[type="password"]:valid {
+  background: white;
+}
+input[type="number"]:valid {
   background: white;
 }
 
-form > div > input[type="password"]:focus + label {
+input:invalid {
+  border: 0.5px solid rgba(255, 0, 0, 0.288);
+}
+
+input:default {
+  border: 0.5px solid #e1e7f3;
+}
+
+input:invalid:not(:focus) {
+  border: 0.5px solid #e1e7f3;
+  background: #f1f3f8;
+}
+
+input:invalid:not(:focus):not(:placeholder-shown) {
+  background: rgb(255, 216, 222);
+  border: 0.5px solid rgba(255, 0, 0, 0.288);
+}
+
+input:invalid:not(:focus):not(:placeholder-shown) + label {
   opacity: 0;
 }
 
-form > div > input[type="password"]:valid {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 20px 20px;
-}
-
-form > div > input[type="password"]:valid + label {
-  opacity: 0;
-}
-
-form
-  > div
-  > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
-  background: pink;
-}
-
-form
-  > div
-  > input[type="password"]:invalid:not(:focus):not(:placeholder-shown)
-  + label {
-  opacity: 0;
-}
-
-form
-  > div
-  > input[type="password"]:invalid:focus:not(:placeholder-shown)
-  ~ .requirements {
+input:invalid:focus:not(:placeholder-shown) ~ .req {
   max-height: auto;
-  padding: 0 30px 20px 50px;
+  height: auto;
+  padding: 5px 5px 5px 5px;
+  opacity: 1;
+  visibility: visible;
 }
-form > div .requirements {
-  padding: 0 30px 0 50px;
-  color: #999;
-  max-height: 0;
+.req {
+  padding: 0 0 0 0;
+  color: rgb(255, 0, 0);
+  max-height: auto;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   overflow: hidden;
-  color: red;
+  z-index: 1;
   font-style: italic;
+  font-size: 8px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgb(206, 215, 255);
+  border: 0.5px solid red;
+  border-radius: 3px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 152px;
+  margin-top: 2px;
 }
 
 body {

@@ -15,6 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <style>
 .config{
   position: absolute;
@@ -132,14 +133,14 @@
   <form id="otpform" name="otpauth" action="" onsubmit="">
     <div class="otpBoxcontainer">
         <div class="otp">
-          <input type="password" class="otpbox" id="otpbox1"  name="OTP1" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox2')"/>
-          <input type="password" class="otpbox" id="otpbox2"  name="OTP2" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox3')"/>
-          <input type="password" class="otpbox" id="otpbox3"  name="OTP3" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox4')"/>
-          <input type="password" class="otpbox" id="otpbox4"  name="OTP4" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox5')"/>
-          <input type="password" class="otpbox" id="otpbox5"  name="OTP5" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'otpbox6')"/>
-          <input type="password" class="otpbox" id="otpbox6"  name="OTP6" maxlength="1"  placeholder=" " pattern="(?=.*\d).{1,1}" />
+          <input type="password" class="otpbox" id="otpbox1"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"   onkeyup="mvCursor('otpbox1','otpbox2',this.pattern);"/>
+          <input type="password" class="otpbox" id="otpbox2"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"   onkeyup="mvCursor('otpbox2','otpbox3',this.pattern)" disabled/>
+          <input type="password" class="otpbox" id="otpbox3"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"   onkeyup="mvCursor('otpbox3','otpbox4',this.pattern)" disabled/>
+          <input type="password" class="otpbox" id="otpbox4"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"   onkeyup="mvCursor('otpbox4','otpbox5',this.pattern)" disabled/>
+          <input type="password" class="otpbox" id="otpbox5"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"   onkeyup="mvCursor('otpbox5','otpbox6',this.pattern)" disabled/>
+          <input type="password" class="otpbox" id="otpbox6"  name="OTP[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="otpvalid(this.pattern,this)" disabled/>
           <img class="otpexclaim" id="otpexclaim" src="img/exclaim.png" alt="">
-          <div class="requirements">
+          <div class="req">
               Your OTP must be in numbers.
           </div>
         </div>
@@ -147,13 +148,13 @@
     <div class="resendwrapper">
         <div class="resendOTP">
           <p class="resendtimer"><span id="minutes">01</span>:<span id="seconds">00</span></p>
-          <a href="#" class="disablelnk" id="resendOTPbtn1" onclick="countdown();disablelink1();" >RESEND OTP</a>
+          <a href="#" class="disablelnk" id="resendOTPbtn1" onclick="countdown();" >RESEND OTP</a>
           <p class="altResendotp1" id="altResendotp1">RESEND OTP</p>
         </div>
     </div>
 
 <div class="verify">
-  <input onclick="" class="otpverifyBtn" id="otpverifybtn" type="submit" value="VERIFY & PROCEED" />
+  <input onclick="otperrorBox();dblotpbtn();" class="otpverifyBtn" id="otpverifybtn" type="submit" value="VERIFY & PROCEED" disabled/>
     <img class="loader" id="otploader" src="img/ACS_loader.gif" alt="">
 </div>
 
@@ -176,30 +177,30 @@
       <div class="otpBoxcontainer">
           <p class="pinlable">PIN No.</p>
             <div class="atmpin">
-              <input type="password" class="pinbox" id="pinbox1"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'pinbox2')"/>
-              <input type="password" class="pinbox" id="pinbox2"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'pinbox3')"/>
-              <input type="password" class="pinbox" id="pinbox3"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'pinbox4')"/>
-              <input type="password" class="pinbox" id="pinbox4"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'expbox')"/>
+              <input type="password" class="pinbox" id="pinbox1"  name="PIN[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('pinbox1','pinbox2',this.pattern)" />
+              <input type="password" class="pinbox" id="pinbox2"  name="PIN[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('pinbox2','pinbox3',this.pattern)" disabled/>
+              <input type="password" class="pinbox" id="pinbox3"  name="PIN[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('pinbox3','pinbox4',this.pattern)" disabled/>
+              <input type="password" class="pinbox" id="pinbox4"  name="PIN[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('pinbox4','expbox',this.pattern)" disabled/>
               <img class="pinexclaim" id="pinexclaim" src="img/exclaim.png" alt="">
-              <div class="requirements">
-                  Your OTP must be in numbers.
+              <div class="req">
+                  Your ATM PIN must be in numbers.
               </div>
             </div>
       </div>  
       <div class="expBoxcontainer">
         <p class="explable">Expiry Date</p>
           <div class="atmpin">
-            <input type="text" class="expbox" id="expbox"  name="OTP" maxlength="4" required placeholder="mm/yy" pattern="(?=.*\d).{4,4}" />
+            <input type="number" class="expbox" id="expbox"  name="PIN[]" maxlength="4" max="9999" required placeholder="mm/yy" pattern="(?=.*\d).{4,4}" onkeyup="otpvalid(this.pattern,this);" disabled/>
             <img class="pinExpexclaim" id="pinExpexclaim" src="img/exclaim.png" alt="">
-            <div class="requirements">
-                Your OTP must be in numbers.
+            <div class="req">
+                Format 0425 (MMYY).
             </div>
           </div>
     </div>  
       
 
   <div class="verify" id="pinverify">
-    <input onclick="dblpinbtn();" class="pinverifyBtn" id="pinverifybtn" type="submit" value="VERIFY & PROCEED" />
+    <input onclick="pinerrorBox();expiryerrorBox();dblpinbtn();" class="pinverifyBtn" id="pinverifybtn" type="submit" value="VERIFY & PROCEED" disabled/>
     <img class="loader" id="pinloader" src="img/ACS_loader.gif" alt="">
   </div>
   
@@ -219,10 +220,10 @@
   <form action="#">
     <div class="otpBoxcontainer" id="staticpasscontainer">
         <div class="statpin">
-          <input type="password" class="passbox" id="passbox"  name="OTP" maxlength="20" required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+          <input type="password" class="passbox" id="passbox"  name="PASS[]" maxlength="20"  required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}" onkeyup="otpvalid(this.pattern,this);"/>
           <img class="passexclaim" id="passexclaim" src="img/exclaim.png" alt="">
-          <div class="requirements">
-              Your OTP must be in numbers.
+          <div class="req">
+            Please match with password.
           </div>
         </div>
     </div>  
@@ -235,7 +236,7 @@
     </div>
 
 <div class="verify" id="statpinbtn">
-  <input onclick="dblpassbtn();" class="otpverifyBtn" id="passbtn" type="submit" value="VERIFY & PROCEED"/>
+  <input onclick="passerrorBox();dblpassbtn();" class="otpverifyBtn" id="passbtn" type="submit" value="VERIFY & PROCEED" disabled/>
   <img class="loader" id="passloader" src="img/ACS_loader.gif" alt="">
 </div>
 
@@ -253,18 +254,18 @@
 
 <div class="dyncnt" id="resetPwd">
 
-  <form class="rstForm" action="#">
+  <form class="rstForm" action="#" onsubmit="">
     <div class="otpBoxcontainer" id="resetboxcontainer">
       <p class="resetlable">Enter OTP</p>
             <div id="rstotp">
-              <input type="password" class="rstOtpbox" id="rstotpbox1"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'rstotpbox2')"/>
-              <input type="password" class="rstOtpbox" id="rstotpbox2"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'rstotpbox3')"/>
-              <input type="password" class="rstOtpbox" id="rstotpbox3"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'rstotpbox4')"/>
-              <input type="password" class="rstOtpbox" id="rstotpbox4"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'rstotpbox5')"/>
-              <input type="password" class="rstOtpbox" id="rstotpbox5"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'rstotpbox6')"/>
-              <input type="password" class="rstOtpbox" id="rstotpbox6"  name="OTP" maxlength="1" required placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor(this,'resetmonthbox')"/>
+              <input type="password" class="rstOtpbox" id="rstotpbox1"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox1','rstotpbox2',this.pattern)" />
+              <input type="password" class="rstOtpbox" id="rstotpbox2"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox1','rstotpbox3',this.pattern)" disabled/>
+              <input type="password" class="rstOtpbox" id="rstotpbox3"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox2','rstotpbox4',this.pattern)" disabled/>
+              <input type="password" class="rstOtpbox" id="rstotpbox4"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox3','rstotpbox5',this.pattern)" disabled/>
+              <input type="password" class="rstOtpbox" id="rstotpbox5"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox4','rstotpbox6',this.pattern)" disabled/>
+              <input type="password" class="rstOtpbox" id="rstotpbox6"  name="RESET[]" maxlength="1"  required placeholder=" " pattern="(?=.*\d).{1,1}"  onkeyup="mvCursor('rstotpbox5','resetmonthbox',this.pattern)" disabled/>
               <img class="rstotpexclaim" id="rstotpexclaim" src="img/exclaim.png" alt="">
-              <div class="requirements">
+              <div class="req">
                   Your OTP must be in numbers.
               </div>
             </div>
@@ -281,10 +282,10 @@
       <div class="rstwrap">
       <p class="rstExplable">Expiry Date</p>
         <div class="rstExpbox">
-          <input type="text" class="resetexpbox" id="resetmonthbox"  name="OTP" maxlength="4" required placeholder="mm/yy" pattern="(?=.*\d).{4,4}" onkeyup="mvCursor(this,'resetcreate')"/>
+          <input type="number" class="resetexpbox" id="resetmonthbox"  name="RESET[]" maxlength="4" max="9999" required placeholder="mm/yy" pattern="(?=.*\d).{4,4}"  onkeyup="mvCursor('resetmonthbox','resetcreate',this.pattern)" disabled/>
           <img class="rstexpexclaim" id="rstexpexclaim" src="img/exclaim.png" alt="">
-          <div class="requirements">
-              Your OTP must be in numbers.
+          <div class="req">
+              Format 0225 (MMYY).
           </div>
         </div>
       </div>
@@ -294,10 +295,10 @@
     <div class="rstwrap">
     <p class="rstExplable">Create Password</p>
       <div class="rstExpbox">
-        <input type="password" class="resetexpbox" id="resetcreate"  name="OTP" maxlength="20" required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}" onkeyup="mvCursor(this,'resetconfirm')"/>
+        <input type="password" class="resetexpbox" id="resetcreate"  name="RESET[]" maxlength="20" minlength="8" required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}"  onkeyup="mvCursor('resetcreate','resetconfirm',this.pattern)" disabled/>
         <img class="createexclaim" id="createexclaim" src="img/exclaim.png" alt="">
-        <div class="requirements">
-            Your OTP must be in numbers.
+        <div class="req">
+            Password should have atleast one number,one lower case character, one upper case character, one symbol (\"@*&^!_$) minimum 8 characters & maximum 20 characters.
         </div>
       </div>
     </div>
@@ -307,10 +308,10 @@
   <div class="rstwrap">
   <p class="rstExplable">Confirm Password</p>
     <div class="rstExpbox">
-      <input type="password" class="resetexpbox" id="resetconfirm"  name="OTP" maxlength="20" required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}" />
+      <input type="password" class="resetexpbox" id="resetconfirm"  name="RESET[]" maxlength="20" required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}" onkeyup="otpvalid(this.pattern,this);" disabled/>
       <img class="confirmexclaim" id="confirmexclaim" src="img/exclaim.png" alt="">
-      <div class="requirements">
-          Your OTP must be in numbers.
+      <div class="req">
+          Please match with created password.
       </div>
     </div>
   </div>
@@ -318,7 +319,7 @@
 
 
 <div class="verify" id="verifyreset">
-  <input onclick="dblsubmitbtn();" class="otpverifyBtn" id="submitbtn" type="submit" value="SUBMIT"/>
+  <input onclick="dblsubmitbtn();resetOTPerrorBox();" class="otpverifyBtn" id="submitbtn" type="submit" value="SUBMIT" disabled/>
   <img class="loader" id="resetloader" src="img/ACS_loader.gif" alt="">
 </div>
 

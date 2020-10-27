@@ -199,7 +199,7 @@ function dblotpbtn() {
     document.getElementById("otploader").style.visibility = "visible";
 
     setTimeout(() => {
-        otpbtn.disabled = false;
+        //otpbtn.disabled = false;
         otpbtn.value = "VERIFY & PROCEED";
         document.getElementById("otploader").style.opacity = "0";
         document.getElementById("otploader").style.visibility = "hidden";
@@ -213,7 +213,7 @@ function dblpinbtn() {
     document.getElementById("pinloader").style.opacity = "1";
     document.getElementById("pinloader").style.visibility = "visible";
     setTimeout(() => {
-        pinbtn.disabled = false;
+        //pinbtn.disabled = false;
         pinbtn.style.opacity = "1";
         pinbtn.value = "VERIFY & PROCEED";
         document.getElementById("pinloader").style.opacity = "0";
@@ -228,7 +228,7 @@ function dblpassbtn() {
     document.getElementById("passloader").style.opacity = "1";
     document.getElementById("passloader").style.visibility = "visible";
     setTimeout(() => {
-        pinbtn.disabled = false;
+        //pinbtn.disabled = false;
         pinbtn.value = "VERIFY & PROCEED";
         document.getElementById("passloader").style.opacity = "0";
         document.getElementById("passloader").style.visibility = "hidden";
@@ -242,7 +242,7 @@ function dblsubmitbtn() {
     document.getElementById("resetloader").style.opacity = "1";
     document.getElementById("resetloader").style.visibility = "visible";
     setTimeout(() => {
-        pinbtn.disabled = false;
+        //pinbtn.disabled = false;
         pinbtn.value = "SUBMIT";
         document.getElementById("resetloader").style.opacity = "0";
         document.getElementById("resetloader").style.visibility = "hidden";
@@ -330,9 +330,6 @@ function Decrement() {
             seconds.innerHTML = 00;
             document.getElementById("resendOTPbtn1").style.display = "block";
             document.getElementById("altResendotp1").style.display = "none";
-
-            document.getElementById("sendotpBtn").disabled = false;
-            document.getElementById("sendotpBtn").style.opacity = "1";
         } else {
             secs--;
             setTimeout('Decrement()', 1000);
@@ -456,86 +453,88 @@ function passcnt() {
   }, 300000 );*/
 
 //next otp box
-function mvCursor(from, to) {
-    var lgth = from.value.length;
+function mvCursor(from, to, valid) {
+    var lgth = document.getElementById(from).value.length;
+    var from = document.getElementById(from);
+    var to = document.getElementById(to);
     var maxLgth = from.getAttribute("maxlength");
-    if (lgth == maxLgth) {
-        document.getElementById(to).focus();
-    }
-
-}
-
-
-/*//empty check
-function empty() {
-    var myInput = document.getElementById("otpbox1");
-    if (myInput && myInput.value) {
-        alert("My input has a value!");
-    } else {
-        alert("enter a value");
-        myInput.focus();
-    }
-}
-*/
-
-/*
-function otpfocus() {
-        $('#otpenter input').each(function () {
-            if ($(this).val() == '') {
-                this.focus();
-                event.preventDefault();
-                return false;
-            }
-            else {
-
-                window.location = "https://yappay.in";
-             //   document.getElementById("otpenter").setAttribute.action = "#";
-            }
-        });
-}
-function pinfocus() {
-    $('#atmpin input').each(function () {
-        if ($(this).val() == '') {
-            this.focus();
-            event.preventDefault();
-            return false;
+    var minLgth = from.getAttribute('minlength');
+    
+if (lgth == minLgth) {
+            document.getElementById("resetconfirm").disabled = false;
         }
-    });
-}
-*/
 
-function formvalidate() {
-    var box1 = document.getElementById('otpform').OTP1.value;
-    var box2 = document.getElementById('otpform').OTP2.value;
-    var box3 = document.getElementById('otpform').OTP3.value;
-    var box4 = document.getElementById('otpform').OTP4.value;
-    var box5 = document.getElementById('otpform').OTP5.value;
-    var box6 = document.getElementById('otpform').OTP6.value;
-
-  //var v = document.forms["otpauth"][box].value;
-    if (!box1 || !box2 || !box3 || !box4 || !box5 || !box6) {
-        alert("Name must be filled out");
-        console.log(box1, box2, box3, box4, box5, box6);
+    else if (lgth !== maxLgth && !from.value.match(valid)) {
+        to.disabled = "true";
+        from.focus();
+       // alert("should be between" + val);
         return false;
-        
     }
-       
-    else {
-        return true;
-    }
-}
 
+    else if(lgth == maxLgth && from.value.match(valid)){
+        to.disabled = false;
+        to.focus();
+        //getvalues();
+    }
+    
+  
+    }
+    
 
 /*
-$(".otpverifyBtn").click(function () {
-    if ($('.otpbox').val("")) {
-        $().addClass("errorCLass");
-        alert("no");
-    }
-    else {
-        //action
-    }
-})
+
+    function InvalidMsg(textbox) { 
+  
+            if (textbox.value === '') { 
+                textbox.setCustomValidity 
+                      ('Input Required!'); 
+            } else if (textbox.validity.typeMismatch) { 
+                textbox.setCustomValidity 
+                      ('Enter a value in required format!'); 
+            } else { 
+                textbox.setCustomValidity(''); 
+            } 
+  
+            return true; 
+} 
+        
 */
 
+
+$('#resetconfirm,#resetcreate').on('keyup', function () {
+    if ($('#resetcreate').val() == $('#resetconfirm').val()) {
+        $('#resetconfirm').css('border', '0.5px solid #7CFC00');
+        $('#resetconfirm').css('color', '#7CFC00');
+        $('#resetcreate').css('border', '0.5px solid #7CFC00');
+        $('#resetcreate').css('color', '#7CFC00');
+    } else {
+        $('#resetconfirm').css('color', 'red');
+        $('#resetconfirm').css('border', '0.5px solid #e1e7f3');
+        $('#resetcreate').css('color', 'black');
+        $('#resetcreate').css('border', '0.5px solid #e1e7f3');
+        //$('.req').html('Please match with created password')
+    }
+});
+
+
+
+function otpvalid(val,idi) {
+    
+    if (idi.value.match(val)) {
+document.getElementById("otpverifybtn").disabled = false;
+        document.getElementById("pinverifybtn").disabled = false;
+        document.getElementById("passbtn").disabled = false;
+        document.getElementById("submitbtn").disabled = false;
+    }
+}
+
+window.onload = foc();
+function foc() {
+    document.getElementById("otpbox1").focus();
+    document.getElementById("pinbox1").focus();
+    document.getElementById("passbox").focus();
+    document.getElementById("rstotpbox1").focus();
+        //for (var i = 0; i < otpinps.length; i++) {
+        //var otpinp = otpinps[i];
+}
 
