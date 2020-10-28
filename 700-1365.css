@@ -652,14 +652,15 @@ a.disabled {
   justify-content: center;
   width: 100%;
   float: left;
-  margin-top: 20px;
+  margin-top: 7px;
   color: #273a49;
+  height: 30px;
 }
 
 .rstwrap {
   position: relative;
   width: 290px;
-  height: 20px;
+  height: 30px;
   display: flex;
   align-items: center;
 }
@@ -682,10 +683,10 @@ a.disabled {
 }
 
 .resetexpbox {
-  width: 200px !important;
+  width: 201px !important;
   height: 30px !important;
   max-height: 30px;
-  max-width: 200px;
+  max-width: 201px;
   border: 0.5px solid #e1e7f3;
   padding: 10px 2px 9px 8.3px;
   background: #f1f3f8;
@@ -785,7 +786,7 @@ a.disabled {
 
 #rstinside {
   width: 290px;
-  height: 22px;
+  height: 25px;
 }
 
 .pinlable {
@@ -815,18 +816,18 @@ a.disabled {
   color: #273a49;
 }
 .rstexpin {
-  height: 22px;
-  top: -2px;
+  height: 25px;
+
   position: absolute;
   right: 01px;
 }
 #rstexpboxcontainer {
-  height: 15px;
+  height: 25px;
 }
 
 .expin {
   height: 22px;
-  top: -2px;
+
   position: absolute;
   right: 04px;
 }
@@ -840,20 +841,54 @@ a.disabled {
 
 #rstyear {
   width: 98px;
+  height: 25px;
 }
 
 #rstmonth {
   width: 98px;
+  height: 25px;
+}
+
+:root {
+  --radius: 2px;
+  --baseFg: #d3ddff;
+  --baseBg: #f1f3f8;
+  --accentFg: #5f30e2;
+  --accentBg: #dfe6fc;
+  --bordercl: #e1e7f3;
 }
 
 select {
-  font-size: 8px;
-  outline: none;
-  border: hotpink;
-  color: rgba(0, 0, 0, 0.521);
-  background-color: #e1e7f3;
-  border-radius: 3px;
-  height: 15px;
+  font: 400 8px/1.3 "Open Sans";
+  -webkit-appearance: none;
+  appearance: none;
+  color: dimgray;
+  border: 0.5px solid var(--bordercl);
+  line-height: 1;
+  outline: 0;
+  padding: 0.35em 2.5em 0.3em 0.75em;
+  border-radius: var(--radius);
+  background-color: var(--baseBg);
+  background-image: url("img/dropdown.svg");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: right 0px center;
+  margin: 0px;
+  height: 17px;
+  cursor: pointer;
+}
+
+select:hover {
+  color: var(--accentFg);
+  border: 1px solid var(--accentFg);
+  -webkit-color: var(--accentFg);
+  -webkit-border: 1px solid var(--accentFg);
+}
+
+select:active {
+  color: var(--accentBg);
+  border-color: var(--accentFg);
+  background-color: var(--baseBg);
 }
 
 .pinlable {

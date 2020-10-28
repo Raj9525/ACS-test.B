@@ -660,7 +660,7 @@ a.disabled {
   font-weight: normal;
   font-size: 15px;
   margin-right: 97px;
-  margin-left: 0px;
+  margin-left: 5px;
   color: #273a49;
 }
 
@@ -688,24 +688,16 @@ a.disabled {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 13px;
   float: left;
-  height: 30px;
+  height: 38px;
   color: #273a49;
-}
-
-#createpassword {
-  margin-top: 15px;
-}
-
-#confirmpassword {
-  margin-top: 20px;
 }
 
 .rstwrap {
   position: relative;
   width: 435px;
-  height: 20px;
+  height: 38px;
   display: flex;
   align-items: center;
 }
@@ -805,7 +797,7 @@ a.disabled {
 
 #rstinside {
   width: 433px;
-  height: 28px;
+  height: 35px;
 }
 
 .pinlable {
@@ -835,13 +827,12 @@ a.disabled {
   color: #273a49;
 }
 .rstexpin {
-  height: 28px;
-  top: -2px;
+  height: 35px;
   position: absolute;
   right: 0px;
 }
 #rstexpboxcontainer {
-  height: 28px;
+  height: 35px;
 }
 
 .expin {
@@ -863,22 +854,54 @@ a.disabled {
 
 #rstyear {
   width: 130px;
-  height: 28px;
+  height: 35px;
 }
 
 #rstmonth {
   width: 130px;
-  height: 28px;
+  height: 35px;
+}
+
+:root {
+  --radius: 3px;
+  --baseFg: #d3ddff;
+  --baseBg: #f1f3f8;
+  --accentFg: #5f30e2;
+  --accentBg: #dfe6fc;
+  --bordercl: #e1e7f3;
 }
 
 select {
-  font-size: 14px;
-  outline: none;
-  color: rgba(0, 0, 0, 0.521);
-  background-color: #e1e7f3;
-  border-radius: 3px;
-  height: 15px;
-  border: none;
+  font: 400 12px/1.3 "Open Sans";
+  -webkit-appearance: none;
+  appearance: none;
+  color: dimgray;
+  border: 1px solid var(--bordercl);
+  line-height: 1;
+  outline: 0;
+  padding: 0.65em 2.5em 0.55em 0.75em;
+  border-radius: var(--radius);
+  background-color: var(--baseBg);
+  background-image: url("img/dropdown.svg");
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: right 0px center;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+select:hover {
+  color: var(--accentFg);
+  border: 1px solid var(--accentFg);
+  -webkit-color: var(--accentFg);
+  -webkit-border: 1px solid var(--accentFg);
+}
+
+select:active {
+  color: var(--accentBg);
+  border-color: var(--accentFg);
+  background-color: var(--baseBg);
 }
 
 #resetcancel {
@@ -1023,7 +1046,7 @@ input:invalid:focus:not(:placeholder-shown) ~ .req {
   border-radius: 3px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 345px;
+  width: 265px;
   margin-top: 2px;
 }
 

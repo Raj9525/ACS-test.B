@@ -844,14 +844,46 @@ a.disabled {
   width: 65px;
 }
 
+:root {
+  --radius: 2px;
+  --baseFg: #d3ddff;
+  --baseBg: #f1f3f8;
+  --accentFg: #5f30e2;
+  --accentBg: #dfe6fc;
+  --bordercl: #e1e7f3;
+}
+
 select {
-  font-size: 8px;
-  outline: none;
-  border: hotpink;
-  color: rgba(0, 0, 0, 0.521);
-  background-color: #e1e7f3;
-  border-radius: 3px;
-  height: 15px;
+  font: 400 6px/1.3 "Open Sans";
+  -webkit-appearance: none;
+  appearance: none;
+  color: dimgray;
+  border: 0.5px solid var(--bordercl);
+  line-height: 1;
+  outline: 0;
+  padding: 0.35em 2.5em 0.3em 1.2em;
+  border-radius: var(--radius);
+  background-color: var(--baseBg);
+  background-image: url("img/dropdown.svg");
+  background-repeat: no-repeat;
+  background-size: 13px;
+  background-position: right 0px center;
+  margin: 0px;
+  height: 17px;
+  cursor: pointer;
+}
+
+select:hover {
+  color: var(--accentFg);
+  border: 1px solid var(--accentFg);
+  -webkit-color: var(--accentFg);
+  -webkit-border: 1px solid var(--accentFg);
+}
+
+select:active {
+  color: var(--accentBg);
+  border-color: var(--accentFg);
+  background-color: var(--baseBg);
 }
 
 .pinlable {
@@ -999,7 +1031,7 @@ input:invalid:focus:not(:placeholder-shown) ~ .req {
   border-radius: 3px;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 152px;
+  width: 135px;
   margin-top: 2px;
 }
 
