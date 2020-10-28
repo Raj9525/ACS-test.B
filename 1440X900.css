@@ -882,7 +882,7 @@ select {
   padding: 0.65em 2.5em 0.55em 0.75em;
   border-radius: var(--radius);
   background-color: var(--baseBg);
-  background-image: url("img/dropdown.svg");
+  background-image: url("dropdown.svg");
   background-repeat: no-repeat;
   background-size: 25px;
   background-position: right 0px center;
