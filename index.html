@@ -16,7 +16,6 @@
   <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>-->
   <style>
     .config {
       position: absolute;
@@ -139,24 +138,31 @@
         <form id="otpform" name="otpauth" action="" onsubmit="">
           <div class="otpBoxcontainer">
             <div class="otp">
-              <input type="password" class="otpbox" id="otpbox1" name="OTP[]" maxlength="1" required placeholder=" "
+              <input type="tel" class="otpbox" id="otpbox1" name="OTP[]" maxlength="1" required placeholder=" "
                 pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('otpbox1','otpbox2',this.pattern);"
+                onkeydown="backsp(this, 'otpbox1');"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-              <input type="password" class="otpbox" id="otpbox2" name="OTP[]" maxlength="1" required placeholder=" "
+              <input type="tel" class="otpbox" id="otpbox2" name="OTP[]" maxlength="1" required placeholder=" "
                 pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('otpbox2','otpbox3',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
-              <input type="password" class="otpbox" id="otpbox3" name="OTP[]" maxlength="1" required placeholder=" "
+                onkeydown="backsp(this, 'otpbox1');"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <input type="tel" class="otpbox" id="otpbox3" name="OTP[]" maxlength="1" required placeholder=" "
                 pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('otpbox3','otpbox4',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
-              <input type="password" class="otpbox" id="otpbox4" name="OTP[]" maxlength="1" required placeholder=" "
+                onkeydown="backsp(this, 'otpbox2');"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <input type="tel" class="otpbox" id="otpbox4" name="OTP[]" maxlength="1" required placeholder=" "
                 pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('otpbox4','otpbox5',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
-              <input type="password" class="otpbox" id="otpbox5" name="OTP[]" maxlength="1" required placeholder=" "
+                onkeydown="backsp(this, 'otpbox3');"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <input type="tel" class="otpbox" id="otpbox5" name="OTP[]" maxlength="1" required placeholder=" "
                 pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('otpbox5','otpbox6',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
-              <input type="password" class="otpbox" id="otpbox6" name="OTP[]" maxlength="1" required placeholder=" "
-                pattern="(?=.*\d).{1,1}" onkeyup="otpvalid(this.pattern,this)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                onkeydown="backsp(this, 'otpbox4');"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              <input type="tel" class="otpbox" id="otpbox6" name="OTP[]" maxlength="1" required placeholder=" "
+                pattern="(?=.*\d).{1,1}"
+                onkeyup="mvCursor('otpbox6','otpverifybtn',this.pattern);otpvalid(this.pattern,this)"
+                onkeydown="backsp(this, 'otpbox5');"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <img class="otpexclaim" id="otpexclaim" src="img/exclaim.png" alt="">
               <div class="req">
                 Your OTP must be in numbers.
@@ -172,8 +178,8 @@
           </div>
 
           <div class="verify">
-            <input onclick="otperrorBox();dblotpbtn();" class="otpverifyBtn" id="otpverifybtn" type="submit"
-              value="VERIFY & PROCEED" disabled />
+            <input onclick="otpemptied(event);" class="otpverifyBtn" id="otpverifybtn" type="submit"
+              value="VERIFY & PROCEED" />
             <img class="loader" id="otploader" src="img/ACS_loader.gif" alt="">
           </div>
 
@@ -202,14 +208,14 @@
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                   <input type="password" class="pinbox" id="pinbox2" name="PIN[]" maxlength="1" required placeholder=" "
                     pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('pinbox2','pinbox3',this.pattern)"
-                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                   <input type="password" class="pinbox" id="pinbox3" name="PIN[]" maxlength="1" required placeholder=" "
                     pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('pinbox3','pinbox4',this.pattern)"
-                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                   <input type="password" class="pinbox" id="pinbox4" name="PIN[]" maxlength="1" required placeholder=" "
                     pattern="(?=.*\d).{1,1}"
                     onkeyup="mvCursor('pinbox4','month',this.pattern);otpvalid(this.pattern,this)"
-                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                   <img class="pinexclaim" id="pinexclaim" src="img/exclaim.png" alt="">
                   <div class="req">
                     Your ATM PIN must be in numbers.
@@ -282,8 +288,8 @@
 
 
             <div class="verify" id="pinverify">
-              <input onclick="pinerrorBox();dblpinbtn();" class="pinverifyBtn" id="pinverifybtn" type="submit"
-                value="VERIFY & PROCEED" disabled />
+              <input onclick="pinemptied(event)" class="pinverifyBtn" id="pinverifybtn" type="submit"
+                value="VERIFY & PROCEED" />
               <img class="loader" id="pinloader" src="img/ACS_loader.gif" alt="">
             </div>
 
@@ -300,7 +306,7 @@
 
       <div class="dyncnt" id="staticpin">
 
-        <form action="#">
+        <form action="">
           <div class="otpBoxcontainer" id="staticpasscontainer">
             <div class="statpin">
               <input type="password" class="passbox" id="passbox" name="PASS[]" maxlength="20" required placeholder=" "
@@ -341,7 +347,7 @@
 
       <div class="dyncnt" id="resetPwd">
 
-        <form class="rstForm" action="#" onsubmit="">
+        <form class="rstForm" action="" onsubmit="">
           <div class="otpBoxcontainer" id="resetboxcontainer">
             <p class="resetlable">Enter OTP</p>
             <div id="rstotp">
@@ -350,19 +356,19 @@
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <input type="password" class="rstOtpbox" id="rstotpbox2" name="RESET[]" maxlength="1" required
                 placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('rstotpbox2','rstotpbox3',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <input type="password" class="rstOtpbox" id="rstotpbox3" name="RESET[]" maxlength="1" required
                 placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('rstotpbox3','rstotpbox4',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <input type="password" class="rstOtpbox" id="rstotpbox4" name="RESET[]" maxlength="1" required
                 placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('rstotpbox4','rstotpbox5',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <input type="password" class="rstOtpbox" id="rstotpbox5" name="RESET[]" maxlength="1" required
                 placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('rstotpbox5','rstotpbox6',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <input type="password" class="rstOtpbox" id="rstotpbox6" name="RESET[]" maxlength="1" required
                 placeholder=" " pattern="(?=.*\d).{1,1}" onkeyup="mvCursor('rstotpbox6','rstmonth',this.pattern)"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" disabled />
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               <img class="rstotpexclaim" id="rstotpexclaim" src="img/exclaim.png" alt="">
               <div class="req">
                 Your OTP must be in numbers.
@@ -439,8 +445,8 @@
             <div class="rstwrap">
               <p class="rstExplable" id="createpass">Create Password</p>
               <div class="rstExpbox">
-                <input type="password" class="resetexpbox" id="resetcreate" name="RESET[]" maxlength="20" minlength="8"
-                  required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}"
+                <input type="password" class="rstOtpbox resetexpbox" id="resetcreate" name="RESET[]" maxlength="20"
+                  minlength="8" required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}"
                   onkeyup="mvCursor('resetcreate','resetconfirm',this.pattern)" />
                 <img class="createexclaim" id="createexclaim" src="img/exclaim.png" alt="">
                 <div class="req">
@@ -455,8 +461,8 @@
             <div class="rstwrap">
               <p class="rstExplable" id="confirmpass">Confirm Password</p>
               <div class="rstExpbox">
-                <input type="password" class="resetexpbox" id="resetconfirm" name="RESET[]" maxlength="20" required
-                  placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}"
+                <input type="password" class="rstOtpbox resetexpbox" id="resetconfirm" name="RESET[]" maxlength="20"
+                  required placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$&@^*_!-]).{8,}"
                   onkeyup="otpvalid(this.pattern,this);" disabled />
                 <img class="confirmexclaim" id="confirmexclaim" src="img/exclaim.png" alt="">
                 <div class="req">
@@ -468,8 +474,7 @@
 
 
           <div class="verify" id="verifyreset">
-            <input onclick="dblsubmitbtn();resetOTPerrorBox();" class="otpverifyBtn" id="submitbtn" type="submit"
-              value="SUBMIT" disabled />
+            <input onclick="subemptied(event)" class="otpverifyBtn" id="submitbtn" type="submit" value="SUBMIT" />
             <img class="loader" id="resetloader" src="img/ACS_loader.gif" alt="">
           </div>
 

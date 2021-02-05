@@ -964,7 +964,7 @@ form {
   float: left;
 }
 
-input:focus {
+input[type="password"]:focus {
   background: #ffffff;
 }
 
