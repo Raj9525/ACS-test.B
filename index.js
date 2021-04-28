@@ -580,6 +580,8 @@ function foc() {
   rstotpbox1 = document.getElementById("rstotpbox1");
   otpbox1.focus();
   $("otpbox1").focus();
+  otpbox1.click();
+  $("otpbox1").click();
 
   if (otpbox1 == "") {
     alert("empty");
