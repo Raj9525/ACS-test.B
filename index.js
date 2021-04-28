@@ -579,6 +579,8 @@ function foc() {
   passbox = document.getElementById("passbox");
   rstotpbox1 = document.getElementById("rstotpbox1");
   otpbox1.focus();
+  $("otpbox1").focus();
+
   if (otpbox1 == "") {
     alert("empty");
     otpbox1.focus();
